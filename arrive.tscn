@@ -2,5 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bh3c7alk0ugdn" path="res://arrive.gd" id="1_ygm82"]
 
-[node name="Node" type="Node" unique_id=103598424]
+[sub_resource type="SphereShape3D" id="SphereShape3D_ygm82"]
+
+[node name="Area3D" type="Node3D" unique_id=2113029066]
 script = ExtResource("1_ygm82")
+slowing_dist = 1.0
+max_speed = 10.0
+
+[node name="Sphere" type="CollisionShape3D" parent="." unique_id=1508544269]
+shape = SubResource("SphereShape3D_ygm82")

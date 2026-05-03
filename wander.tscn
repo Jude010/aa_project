@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d3dlucmlravjf"]
+
+[ext_resource type="Script" uid="uid://c15xpotog23yw" path="res://wander.gd" id="1_g1y5l"]
+
+[node name="Node" type="Node" unique_id=1604002530]
+script = ExtResource("1_g1y5l")

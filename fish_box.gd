@@ -3,6 +3,7 @@ extends Node
 @export var fish_num:int = 10
 @export var radius: int = .1
 @export var cell_size:int = 1
+@export var spawn_height:float = -3
 
 var cells:Dictionary[Vector3 , Array] = {}
 var boids:Array =[]
@@ -26,11 +27,9 @@ func _ready() -> void:
 	randomize()
 	
 	for i in fish_num:
-		print(i)
 		var fish = fish_scene.instantiate()
 		var pos = find_random_sphere_point() * radius
-		if pos.y > 0:
-			pos.y = pos.y*-1
+		pos.y = randf_range(spawn_height - 1 , spawn_height + 1)
 		add_child(fish)
 		fish.global_position = pos
 		fish.global_rotation = Vector3(0, randf_range(0, PI *2),0)

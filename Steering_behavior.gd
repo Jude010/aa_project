@@ -2,7 +2,7 @@ class_name steering_behavior extends Node
 
 @export var weight:float = 1 
 
-var boid:boid
+var boid:Boid
 
 @export var enabled:bool = true: get = get_enabled, set = set_enabled
 

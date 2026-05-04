@@ -16,11 +16,11 @@ func calc_force()-> Vector3:
 	var center_force =  to_center.limit_length(power)
 	var surface_force:Vector3 = Vector3.ZERO
 	
-	if boid.global_transform.origin.y > Height_constraint and  boid.species == boid.Species.Fish:
-		var to_surface_ofset:float = Height_constraint + boid.global_transform.origin.y
-		surface_force = to_surface_ofset * Vector3.DOWN
+	if boid.global_position.y > Height_constraint and  boid.species == boid.Species.Fish:
+		var to_surface_ofset:float = Height_constraint - boid.global_transform.origin.y
+		surface_force = to_surface_ofset * Vector3.UP
 		
-	if boid.global_transform.origin.y < Height_constraint and boid.species == boid.Species.Bird:
+	if boid.global_position.y < Height_constraint and boid.species == boid.Species.Bird:
 		var to_surface_ofset:float = Height_constraint + boid.global_transform.origin.y
 		surface_force = to_surface_ofset * Vector3.UP
 		

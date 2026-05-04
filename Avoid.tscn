@@ -4,10 +4,8 @@
 
 [node name="Node" type="Node" unique_id=1081405415]
 script = ExtResource("1_ivpm7")
-feeler_angle = null
-feeler_len = null
-weight = null
-enabled = null
+weight = 10.0
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1430774226]
+[node name="Feeler" type="RayCast3D" parent="." unique_id=1430774226]
 target_position = Vector3(0, 0, -1)
+collision_mask = 3

@@ -32,6 +32,6 @@ func calc_force()-> Vector3:
 	
 	global_target = boid.global_transform * local_target
 	
-	return boid.seek_force(global_target)
+	return boid.seek_force(global_target) 
 	
 	

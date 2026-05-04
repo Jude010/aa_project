@@ -3,6 +3,7 @@ extends Node
 @export var bird_num:int = 10
 @export var radius: int = .1
 @export var cell_size:int = 1
+@export var spawn_height:float = 5
 
 var cells:Dictionary[Vector3 , Array] = {}
 var boids:Array =[]
@@ -26,11 +27,10 @@ func _ready() -> void:
 	randomize()
 	
 	for i in bird_num:
-		print(i)
 		var bird = bird_scene.instantiate()
 		var pos = find_random_sphere_point() * radius
-		if pos.y < 0:
-			pos.y = pos.y*-1
+		
+		pos.y = randf_range(spawn_height - .5 , spawn_height + .5)
 		add_child(bird)
 		bird.global_position = pos
 		bird.global_rotation = Vector3(0, randf_range(0, PI *2),0)

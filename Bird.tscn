@@ -7,7 +7,7 @@ albedo_color = Color(0.18717614, 0.18717614, 0.18717614, 1)
 albedo_color = Color(0.6969387, 0.3592833, 2.8878452e-07, 1)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" unique_id=965031229]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.352776, 0, 0, 0)
+transform = Transform3D(1.3008423, 0, 0, 0, 1.3025126, 0, 0, 0, 2.3621964, 0, 0, 0)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1332350976]
 transform = Transform3D(3.6618222e-11, -0.0008377273, 0.99999964, -1, -4.371139e-08, 0, 4.3711374e-08, -0.99999964, -0.0008377273, -9.1018555e-05, 0, -9.094234e-05)

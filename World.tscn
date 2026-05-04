@@ -63,7 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058847338, 2.084538, 12.311
 [node name="Bird_box" type="Node" parent="." unique_id=1221047168]
 script = ExtResource("2_js7pq")
 bird_scene = ExtResource("3_eu7l1")
-bird_num = 100
+bird_num = 300
 radius = 10
 cell_size = 3
 
@@ -86,6 +86,7 @@ shape = SubResource("CylinderShape3D_js7pq")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1271301934]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=397837659]
 shape = SubResource("WorldBoundaryShape3D_bcbcq")

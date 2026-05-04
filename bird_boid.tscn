@@ -29,7 +29,7 @@ shape = SubResource("CylinderShape3D_glovw")
 
 [node name="Constrain" parent="." unique_id=1525480855 instance=ExtResource("3_0ptss")]
 Height_constraint = 1.0
-radius = 100.0
+radius = 300.0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=974501890]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020141602, 0.013420105, -0.00024414063)

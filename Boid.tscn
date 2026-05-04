@@ -22,7 +22,7 @@ shape = SubResource("BoxShape3D_awqyi")
 
 [node name="Constrain" parent="." unique_id=1525480855 instance=ExtResource("4_t23lk")]
 Height_constraint = -1.0
-radius = 100.0
+radius = 300.0
 weight = 5.0
 
 [node name="Avoid" parent="." unique_id=1081405415 instance=ExtResource("5_y3sew")]

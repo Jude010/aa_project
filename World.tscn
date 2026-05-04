@@ -29,11 +29,23 @@ size = Vector2(200, 200)
 subdivide_width = 10
 subdivide_depth = 10
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eu7l1"]
+transparency = 4
+albedo_color = Color(0.15460971, 3.1766296e-05, 0.95301443, 0.3254902)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p1v5b"]
+material = SubResource("StandardMaterial3D_eu7l1")
+flip_faces = true
+size = Vector3(200, 14, 200)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_bcbcq"]
+top_radius = 3.0
+bottom_radius = 3.0
 height = 100.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_js7pq"]
-height = 6.0
+height = 100.0
+radius = 3.0
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bcbcq"]
 
@@ -56,6 +68,10 @@ environment = SubResource("Environment_eu7l1")
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1432328943]
 mesh = SubResource("PlaneMesh_c6gwx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Water" unique_id=453115953]
+transform = Transform3D(1, 0, 0, 0, 1.5587649, 0, 0, 0, 1, 0, -10.793294, 0)
+mesh = SubResource("BoxMesh_p1v5b")
 
 [node name="Player" parent="." unique_id=153131795 instance=ExtResource("2_2dftf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058847338, 2.084538, 12.3114195)
@@ -80,6 +96,52 @@ cell_size = 5
 mesh = SubResource("CylinderMesh_bcbcq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1825690479]
+shape = SubResource("CylinderShape3D_js7pq")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="." unique_id=599503309]
+transform = Transform3D(0.7410131, -0.5185499, 0.42662087, -0.034023445, 0.6055238, 0.7950997, -0.670628, -0.60369444, 0.43105808, 9.752972, 24.528728, 18.279999)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D6" unique_id=692285273]
+transform = Transform3D(1, 0, -8.940697e-08, -1.1920929e-07, 1.0000001, 2.9802322e-08, 2.9802322e-08, 0, 1.0000005, -0.670485, -10.329283, -0.33929825)
+mesh = SubResource("CylinderMesh_bcbcq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6" unique_id=2091853170]
+shape = SubResource("CylinderShape3D_js7pq")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1986648606]
+transform = Transform3D(0.92982143, -0.36801094, 0, 0.36801094, 0.92982143, 0, 0, 0, 1, 9.374947, -6.7964687, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=507890047]
+mesh = SubResource("CylinderMesh_bcbcq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1846267612]
+shape = SubResource("CylinderShape3D_js7pq")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=926207721]
+transform = Transform3D(0.6544004, 0.1901333, -0.7318534, -0.27900788, 0.96028876, 0, 0.7027906, 0.20419288, 0.6814621, -22.999716, -38.396225, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3" unique_id=230409778]
+mesh = SubResource("CylinderMesh_bcbcq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=1640019684]
+shape = SubResource("CylinderShape3D_js7pq")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=976538689]
+transform = Transform3D(0.70924765, -0.2755159, -0.6488904, 0.16052844, 0.959403, -0.23189801, 0.6864389, 0.060307667, 0.7246824, -22.999716, -33.931953, -25.330797)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4" unique_id=197833607]
+mesh = SubResource("CylinderMesh_bcbcq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4" unique_id=1437736264]
+shape = SubResource("CylinderShape3D_js7pq")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="." unique_id=1967039087]
+transform = Transform3D(0.7900658, 0.23829679, -0.5648102, -0.20903507, 0.97085863, 0.117209256, 0.5762814, 0.02546199, 0.8168546, 11.717377, -33.931953, -25.330797)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5" unique_id=937605960]
+mesh = SubResource("CylinderMesh_bcbcq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5" unique_id=750297589]
 shape = SubResource("CylinderShape3D_js7pq")
 
 [node name="Center" type="Marker3D" parent="." unique_id=1472087462]

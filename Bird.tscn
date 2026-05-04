@@ -1,20 +1,28 @@
 [gd_scene format=3 uid="uid://c4y0xy67mnihk"]
 
-[node name="Node3D" type="Node3D" unique_id=1062189076]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mylp0"]
+albedo_color = Color(0.18717614, 0.18717614, 0.18717614, 1)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=965031229]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxlb5"]
+albedo_color = Color(0.6969387, 0.3592833, 2.8878452e-07, 1)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1332350976]
+[node name="CSGCombiner3D" type="CSGCombiner3D" unique_id=965031229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.352776, 0, 0, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1332350976]
 transform = Transform3D(3.6618222e-11, -0.0008377273, 0.99999964, -1, -4.371139e-08, 0, 4.3711374e-08, -0.99999964, -0.0008377273, -9.1018555e-05, 0, -9.094234e-05)
 radius = 0.012207031
 height = 0.1
+material = SubResource("StandardMaterial3D_mylp0")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1124053014]
-transform = Transform3D(-0.0008377273, 0, 0.99999964, 0, 1, 0, -0.99999964, 0, -0.0008377273, -9.086618e-05, 0.01034837, 9.094234e-05)
-size = Vector3(0.02013916, 0.003046875, 0.1)
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1124053014]
+transform = Transform3D(-0.0008377273, 0, 0.99999964, 0, 1, 0, -0.99999976, 0, -0.0008377274, -9.086618e-05, 0.01034837, 9.094234e-05)
+size = Vector3(0.02, 0.003, 0.2)
+material = SubResource("StandardMaterial3D_mylp0")
 
-[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D" unique_id=1326375636]
+[node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=1326375636]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0.00041796267, -0.05111291)
 operation = 2
 inner_radius = 0.001
 outer_radius = 0.046378408
+material = SubResource("StandardMaterial3D_sxlb5")

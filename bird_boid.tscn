@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cx56r0w6136x4"]
+
+[ext_resource type="Script" uid="uid://cqv60t8xs6qfs" path="res://boid.gd" id="1_hp61g"]
+[ext_resource type="PackedScene" uid="uid://d3dlucmlravjf" path="res://wander.tscn" id="2_x2kej"]
+[ext_resource type="PackedScene" uid="uid://cuf3r84uw40he" path="res://Constrain.tscn" id="3_0ptss"]
+[ext_resource type="PackedScene" uid="uid://c4y0xy67mnihk" path="res://Bird.tscn" id="5_ymmvq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awqyi"]
+size = Vector3(0.010009766, 0.043395996, 0.12683105)
+
+[node name="Node3D" type="CharacterBody3D" unique_id=1770017357]
+script = ExtResource("1_hp61g")
+banking = 1.0
+species = 1
+
+[node name="Wander" parent="." unique_id=1604002530 instance=ExtResource("2_x2kej")]
+offset = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1293180157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00036621094, -0.00035317242, 0.014587402)
+shape = SubResource("BoxShape3D_awqyi")
+
+[node name="CSGCombiner3D" parent="." unique_id=965031229 instance=ExtResource("5_ymmvq")]
+
+[node name="Constrain" parent="." unique_id=1525480855 instance=ExtResource("3_0ptss")]
+Height_constraint = 1.0
+radius = 100.0

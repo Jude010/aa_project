@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cuf3r84uw40he"]
+
+[ext_resource type="Script" uid="uid://c4caf0sl2qavc" path="res://Constrain.gd" id="1_vlsnr"]
+
+[node name="Node" type="Node" unique_id=1525480855]
+script = ExtResource("1_vlsnr")
+water_offset = -0.01
+radius = 1.0

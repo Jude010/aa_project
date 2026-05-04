@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dcgm7suf0vqqh"]
+
+[ext_resource type="Script" uid="uid://dokpsaw5rojru" path="res://Avoid.gd" id="1_ivpm7"]
+
+[node name="Node" type="Node" unique_id=1081405415]
+script = ExtResource("1_ivpm7")
+feeler_angle = null
+feeler_len = null
+weight = null
+enabled = null
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1430774226]
+target_position = Vector3(0, 0, -1)

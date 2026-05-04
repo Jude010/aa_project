@@ -1,7 +1,25 @@
 [gd_scene format=3 uid="uid://ou0u7su1qjm4"]
 
-[ext_resource type="PackedScene" uid="uid://dst4lev6qfp2j" path="res://Fish.tscn" id="1_ur8rf"]
+[ext_resource type="Script" uid="uid://cqv60t8xs6qfs" path="res://boid.gd" id="1_ur8rf"]
+[ext_resource type="PackedScene" uid="uid://d3dlucmlravjf" path="res://wander.tscn" id="2_awqyi"]
+[ext_resource type="PackedScene" uid="uid://dst4lev6qfp2j" path="res://Fish.tscn" id="3_t23lk"]
+[ext_resource type="PackedScene" uid="uid://cuf3r84uw40he" path="res://Constrain.tscn" id="4_t23lk"]
 
-[node name="Node3D" type="Node3D" unique_id=2013915542]
+[sub_resource type="BoxShape3D" id="BoxShape3D_awqyi"]
+size = Vector3(0.010009766, 0.043395996, 0.12683105)
 
-[node name="Body" parent="." unique_id=1239027334 instance=ExtResource("1_ur8rf")]
+[node name="Node3D" type="CharacterBody3D" unique_id=1770017357]
+script = ExtResource("1_ur8rf")
+
+[node name="Wander" parent="." unique_id=1604002530 instance=ExtResource("2_awqyi")]
+offset = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1293180157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00036621094, -0.00035317242, 0.014587402)
+shape = SubResource("BoxShape3D_awqyi")
+
+[node name="Fish" parent="." unique_id=1202625210 instance=ExtResource("3_t23lk")]
+
+[node name="Constrain" parent="." unique_id=1525480855 instance=ExtResource("4_t23lk")]
+radius = 100.0
+weight = 5.0

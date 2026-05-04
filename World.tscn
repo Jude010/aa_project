@@ -1,15 +1,94 @@
 [gd_scene format=3 uid="uid://uwdljllpcujf"]
 
+[ext_resource type="PackedScene" uid="uid://ou0u7su1qjm4" path="res://Boid.tscn" id="1_c6gwx"]
+[ext_resource type="PackedScene" uid="uid://srxtvkv8h15s" path="res://player.tscn" id="2_2dftf"]
+[ext_resource type="Script" uid="uid://c4chuh12b2bax" path="res://fish_box.gd" id="2_bcbcq"]
+[ext_resource type="Script" uid="uid://ckskchqjje3kj" path="res://bird_box.gd" id="2_js7pq"]
+[ext_resource type="PackedScene" uid="uid://cx56r0w6136x4" path="res://bird_boid.tscn" id="3_eu7l1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bcbcq"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_js7pq"]
+sky_material = SubResource("ProceduralSkyMaterial_bcbcq")
+
+[sub_resource type="Environment" id="Environment_eu7l1"]
+background_mode = 2
+sky = SubResource("Sky_js7pq")
+tonemap_mode = 2
+glow_enabled = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmany"]
-transparency = 1
-albedo_color = Color(0.24705882, 0.3647059, 1, 1)
+transparency = 4
+albedo_color = Color(0.15460971, 3.1766296e-05, 0.95301443, 0.3254902)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_c6gwx"]
 material = SubResource("StandardMaterial3D_cmany")
+size = Vector2(200, 200)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bcbcq"]
+height = 100.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_js7pq"]
+height = 6.0
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bcbcq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js7pq"]
+diffuse_mode = 3
+albedo_color = Color(0.22120023, 0.28209972, 0.33564812, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_eu7l1"]
+material = SubResource("StandardMaterial3D_js7pq")
+size = Vector2(200, 200)
 
 [node name="Node3D" type="Node3D" unique_id=861146476]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1432328943]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=801854298]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2010943840]
+environment = SubResource("Environment_eu7l1")
+
+[node name="Water" type="MeshInstance3D" parent="." unique_id=1432328943]
 mesh = SubResource("PlaneMesh_c6gwx")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=682517148]
+[node name="Player" parent="." unique_id=153131795 instance=ExtResource("2_2dftf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058847338, 2.084538, 12.3114195)
+
+[node name="Bird_box" type="Node" parent="." unique_id=1221047168]
+script = ExtResource("2_js7pq")
+bird_scene = ExtResource("3_eu7l1")
+bird_num = 100
+radius = 10
+cell_size = 3
+
+[node name="Fish_box" type="Node" parent="." unique_id=1463645220]
+script = ExtResource("2_bcbcq")
+fish_scene = ExtResource("1_c6gwx")
+fish_num = 1000
+radius = 10
+cell_size = 5
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1728627509]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=122587794]
+mesh = SubResource("CylinderMesh_bcbcq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1825690479]
+shape = SubResource("CylinderShape3D_js7pq")
+
+[node name="Center" type="Marker3D" parent="." unique_id=1472087462]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1271301934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=397837659]
+shape = SubResource("WorldBoundaryShape3D_bcbcq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=40702369]
+mesh = SubResource("PlaneMesh_eu7l1")

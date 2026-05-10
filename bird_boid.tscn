@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cuf3r84uw40he" path="res://Constrain.tscn" id="3_0ptss"]
 [ext_resource type="PackedScene" uid="uid://dcgm7suf0vqqh" path="res://Avoid.tscn" id="5_hp61g"]
 [ext_resource type="PackedScene" uid="uid://c4y0xy67mnihk" path="res://Bird.tscn" id="5_ymmvq"]
+[ext_resource type="PackedScene" uid="uid://d4a1k16cxkwa0" path="res://Flock.tscn" id="6_x2kej"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_glovw"]
 height = 0.2350769
@@ -28,11 +29,14 @@ shape = SubResource("CylinderShape3D_glovw")
 [node name="Bird_body" parent="." unique_id=965031229 instance=ExtResource("5_ymmvq")]
 
 [node name="Constrain" parent="." unique_id=1525480855 instance=ExtResource("3_0ptss")]
-Height_constraint = 1.0
-radius = 300.0
+Height_constraint = 2.0
+radius = 100.0
+weight = 10.0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=974501890]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020141602, 0.013420105, -0.00024414063)
 shape = SubResource("BoxShape3D_glovw")
 
-[node name="Node" parent="." unique_id=1081405415 instance=ExtResource("5_hp61g")]
+[node name="Avoid" parent="." unique_id=1081405415 instance=ExtResource("5_hp61g")]
+
+[node name="Flock" parent="." unique_id=1160650550 instance=ExtResource("6_x2kej")]

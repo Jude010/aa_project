@@ -79,16 +79,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058847338, 2.084538, 12.311
 [node name="Bird_box" type="Node" parent="." unique_id=1221047168]
 script = ExtResource("2_js7pq")
 bird_scene = ExtResource("3_eu7l1")
-bird_num = 300
+bird_num = 150
 radius = 10
 cell_size = 3
+seperator_count = 1
 
 [node name="Fish_box" type="Node" parent="." unique_id=1463645220]
 script = ExtResource("2_bcbcq")
 fish_scene = ExtResource("1_c6gwx")
-fish_num = 1000
+fish_num = 200
 radius = 10
 cell_size = 5
+seperator_count = 1
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1728627509]
 

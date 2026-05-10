@@ -4,9 +4,12 @@ extends Node
 @export var radius: int = .1
 @export var cell_size:int = 1
 @export var spawn_height:float = -3
+@export var seperator_count:int = 10
 
 var cells:Dictionary[Vector3 , Array] = {}
 var boids:Array =[]
+var boid_seperated:Array[Array] = []
+var seperator:int = 0 	
 
 func positon_to_cell(boid:Boid) -> Vector3:
 	var position:Vector3 = boid.global_position
@@ -14,6 +17,9 @@ func positon_to_cell(boid:Boid) -> Vector3:
 	return cell
 	
 ##func cell_to_position(cell:Vector3) -> Vector3:
+func fill_seperator() -> void :
+	for i in range(seperator_count):
+		boid_seperated.push_back([])
 
 func do_partition():
 	cells.clear()
@@ -24,6 +30,7 @@ func do_partition():
 		cells[key].push_back(boid)
 	
 func _ready() -> void:
+	fill_seperator()
 	randomize()
 	
 	for i in fish_num:
@@ -38,9 +45,21 @@ func _ready() -> void:
 			constrain.center = get_node("../Center")
 		
 		boids.push_back(fish)
+	
+	var count:int = 0
 		
+	for i in boids:
+		boid_seperated[count].push_back(i)
+		count += 1
+		count %= seperator_count
 func _process(delta: float) -> void:
 	do_partition()
+	
+func _physics_process(delta: float) -> void:
+	for i in boid_seperated[seperator]:
+		i.sperated_process(delta)
+	seperator +=1
+	seperator %= seperator_count
 		
 		
 func find_random_sphere_point() -> Vector3:

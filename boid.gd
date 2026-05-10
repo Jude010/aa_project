@@ -16,6 +16,8 @@ var new_force:Vector3 = Vector3.ZERO
 var speed:float
 var accel:Vector3
 
+var move:bool = false
+
 func _get_cells() -> Array:
 	var local_cells:Array[Boid]= []
 	var cells = get_parent().cells
@@ -71,9 +73,8 @@ func calculate() -> Vector3:
 	
 	return force_acc	
 	
-func _physics_process(delta: float) -> void:
+func sperated_process(delta) -> void:
 	new_force = calculate()
-	
 	force = lerp(force , new_force , delta)
 	
 	accel = force/mass
@@ -84,12 +85,21 @@ func _physics_process(delta: float) -> void:
 		vel = vel.limit_length(max_speed)
 		
 	set_velocity(vel)
+	
+	
+	
+	move =true
+	
+func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
-	if species ==  Species.Bird:
-		var temp_up = global_transform.basis.y.lerp(Vector3.UP + (accel * banking), delta * 5.0)
-		look_at(global_transform.origin + vel.normalized(), temp_up)
-	else:
-		look_at(global_transform.origin + vel.normalized())
+	
+	if move:
+		if species ==  Species.Bird:
+			var temp_up = global_transform.basis.y.lerp(Vector3.UP + (accel * banking), delta * 5.0)
+			look_at(global_transform.origin + vel.normalized(), temp_up)
+		else:
+			look_at(global_transform.origin + vel.normalized())
+		move = false
 		
 		

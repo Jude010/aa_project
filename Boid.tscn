@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dst4lev6qfp2j" path="res://Fish.tscn" id="3_t23lk"]
 [ext_resource type="PackedScene" uid="uid://cuf3r84uw40he" path="res://Constrain.tscn" id="4_t23lk"]
 [ext_resource type="PackedScene" uid="uid://dcgm7suf0vqqh" path="res://Avoid.tscn" id="5_y3sew"]
+[ext_resource type="PackedScene" uid="uid://d4a1k16cxkwa0" path="res://Flock.tscn" id="6_pgf3i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_awqyi"]
 size = Vector3(0.010009766, 0.075302124, 0.22242737)
@@ -22,7 +23,10 @@ shape = SubResource("BoxShape3D_awqyi")
 
 [node name="Constrain" parent="." unique_id=1525480855 instance=ExtResource("4_t23lk")]
 Height_constraint = -1.0
-radius = 300.0
-weight = 5.0
+radius = 200.0
+weight = 10.0
 
 [node name="Avoid" parent="." unique_id=1081405415 instance=ExtResource("5_y3sew")]
+
+[node name="Flock" parent="." unique_id=1160650550 instance=ExtResource("6_pgf3i")]
+weight = 3.0
